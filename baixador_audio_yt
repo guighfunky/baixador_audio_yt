@@ -1,9 +1,20 @@
 import os
 import json
-import yt_dlp
-import tkinter as tk
-from tkinter import filedialog, messagebox
-from tkinter.ttk import Progressbar
+import subprocess
+import sys
+try:
+    import yt_dlp
+except ImportError:
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'yt-dlp'])
+try:
+    import tkinter as tk
+except ImportError:
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'tk'])
+try:
+    from tkinter import filedialog, messagebox
+    from tkinter.ttk import Progressbar
+except ImportError:
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'pillow'])
 from threading import Thread
 from datetime import datetime
 
